@@ -16,7 +16,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`facultyfeedback-production.up.railway.app/user/login`, {
+        const response = await fetch(`https://${VITE_API_URL}/user/login`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ enrollment, password })

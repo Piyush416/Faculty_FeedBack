@@ -60,7 +60,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch(`facultyfeedback-production.up.railway.app/api/sorted`)
+    fetch(`https://${VITE_API_URL}/api/sorted`)
       .then((response) => response.json())
       .then((data) => {
         setFaculties(data);

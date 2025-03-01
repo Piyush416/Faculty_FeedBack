@@ -18,7 +18,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(firstName, lastName, enrol, email, password);
-        const response = await fetch(`facultyfeedback-production.up.railway.app/user/register`, {
+        const response = await fetch(`https://${VITE_API_URL}/user/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ firstName, lastName, enrol, email, password })
