@@ -20,14 +20,13 @@ app.use(express.json());
 
 // custom middle war to check token
 const authToken = async (req, res, next) => {
-    const { token, enrollment, hashEnrollment } = req.body;
-    if (!token && !enrollment && !hashEnrollment) {
-        res.status(401).json({ message: "Token/Enrollment not found" })
+    const { token } = req.body;
+    if (!token) {
+        res.status(401).json({ message: "Token not found" })
     }
     try {
         const decodedToken = jwt.verify(token, JWT_SECRET);
-        const isMatch = await bcrypt.compare(enrollment, hashEnrollment);
-        console.log("decodedToken: ", decodedToken);
+        // console.log("decodedToken: ", decodedToken);
         req.user = decodedToken;
         next();
 
@@ -173,7 +172,7 @@ app.post("/user/login", async (req, res) => {
             const token = jwt.sign(
                 { id: data._id, enrol: data.enrol },
                 JWT_SECRET,
-                { expiresIn: '15min' }
+                { expiresIn: '30min'}
             )
 
             // bcrypt the enrollment
@@ -197,10 +196,9 @@ app.post("/user/login", async (req, res) => {
 
 app.post("/api/isFeedBackExist", authToken, async (req, res) => {
     try {
-        const { enrollment, facultyobjId } = req.body;
-        // console.log(enrollment)
-        // console.log(facultyobjId);
-        const feedbackExists = await feedbackModel.exists({ facultyObjectId: facultyobjId, FeedBackEnrol: enrollment });
+        const { facultyobjId } = req.body;
+        const { enrol } = req.user;
+        const feedbackExists = await feedbackModel.exists({ facultyObjectId: facultyobjId, FeedBackEnrol: enrol });
         const TotalfeedBacks = await feedbackModel.countDocuments({ facultyObjectId: facultyobjId });
         if (feedbackExists) {
             res.status(200).json({ message: "FeedBack is Given", canGive: true, TotalfeedBacks })

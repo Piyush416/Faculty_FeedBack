@@ -19,8 +19,6 @@ const Header = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('token');
-    localStorage.removeItem('enrollment')
-    localStorage.removeItem('hashEnrollment')
     localStorage.removeItem('rank')
   }
 

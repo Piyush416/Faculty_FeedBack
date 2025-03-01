@@ -13,8 +13,7 @@ const Cards = () => {
   const selectedFacultySession = JSON.parse(sessionStorage.getItem("selectedFacultySession" || "{}"));
 
 
-  const hashEnrollment = localStorage.getItem('hashEnrollment')
-  const enrollment = localStorage.getItem('enrollment')
+
   const token = sessionStorage.getItem('token')
   const rank = localStorage.getItem('rank')
   const [totalFeedBacks, setTotalFeedBacks] = useState(selectedFacultySession.feedback_count);
@@ -25,10 +24,10 @@ const Cards = () => {
   // checking that user can give feedback
   useEffect(() => {
     const facultyobjId = selectedFacultySession._id;
-    const response = fetch(`https://${API_BASE_URL}/api/isFeedBackExist`, {
+    const response = fetch(`${API_BASE_URL}/api/isFeedBackExist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token, enrollment, hashEnrollment, facultyobjId })
+      body: JSON.stringify({ token, facultyobjId })
     })
 
       .then((response) => response.json())
@@ -54,10 +53,10 @@ const Cards = () => {
     const facultyName = selectedFacultySession.name;
     const feedbackText = ReviewValue;
 
-    const response = await fetch(`https://${API_BASE_URL}/user/feedback`, {
+    const response = await fetch(`${API_BASE_URL}/user/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ facultyId, facultyName, feedbackText, enrollment, hashEnrollment, token })
+      body: JSON.stringify({ facultyId, facultyName, feedbackText, token })
     })
 
     const resp = await response.json();
