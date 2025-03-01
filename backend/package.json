@@ -18,5 +18,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
     "react-router-dom": "^7.1.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

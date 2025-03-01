@@ -3,6 +3,7 @@ import './Home.css';
 import { Link, useNavigate } from 'react-router-dom'
 import MessageContext from '../context/messageContext';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -60,7 +61,7 @@ const Home = () => {
 
   useEffect(() => {
     const faculty_api = import.meta.env.VITE_API
-    fetch("http://localhost:5000/api/sorted")
+    fetch(`${API_BASE_URL}/api/sorted`)
       .then((response) => response.json())
       .then((data) => {
         setFaculties(data);
