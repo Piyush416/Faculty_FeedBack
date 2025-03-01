@@ -10,7 +10,8 @@ const path = require("path")
 
 
 // json web token
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { type } = require('os');
 const JWT_SECRET = process.env.JWT_SECRET_CODE
 
 // middle war
@@ -72,7 +73,7 @@ const userModel = new mongoose.model('users', userSchema);
 const { Schema } = mongoose
 const feedbackSchema = new mongoose.Schema({
     facultyName: String,
-    FeedBackEnrol: Number,
+    FeedBackEnrol: { type: Number, required: true },
     feedback: String,
     facultyObjectId: Schema.Types.ObjectId
 })
@@ -172,16 +173,11 @@ app.post("/user/login", async (req, res) => {
             const token = jwt.sign(
                 { id: data._id, enrol: data.enrol },
                 JWT_SECRET,
-                { expiresIn: '30min'}
+                { expiresIn: '30min' }
             )
 
-            // bcrypt the enrollment
-            const saltRounds = 10;
-            const hashEnrollment = await bcrypt.hash(enrollment, saltRounds);
-            // console.log("hash Enrollement: ", hashEnrollment);
 
-
-            res.status(201).json({ message: 'Login SuccessFully', token, enrollment, hashEnrollment })
+            res.status(201).json({ message: 'Login SuccessFully', token })
         }
         else {
             res.status(500).json({ message: 'Incorrect Password' })
@@ -216,8 +212,9 @@ app.post("/api/isFeedBackExist", authToken, async (req, res) => {
 // handle feedback
 app.post('/user/feedback', authToken, async (req, res) => {
     try {
+        const { enrol } = req.user;
         const { facultyId, facultyName, feedbackText, enrollment } = req.body
-        const newfeedback = await new feedbackModel({ facultyObjectId: facultyId, facultyName, FeedBackEnrol: enrollment, feedback: feedbackText })
+        const newfeedback = await new feedbackModel({ facultyObjectId: facultyId, facultyName, FeedBackEnrol: enrol, feedback: feedbackText })
         await newfeedback.save();
         res.status(201).json({ message: "FeedBack Submitted SuccessFully" })
     } catch {
