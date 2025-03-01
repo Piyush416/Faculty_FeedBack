@@ -54,7 +54,7 @@ const Cards = () => {
     const facultyName = selectedFacultySession.name;
     const feedbackText = ReviewValue;
 
-    const response = await fetch("http://localhost:5000/user/feedback", {
+    const response = await fetch(`https://${API_BASE_URL}/user/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ facultyId, facultyName, feedbackText, enrollment, hashEnrollment, token })
