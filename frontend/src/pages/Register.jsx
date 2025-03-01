@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Register.css'
 
-const PORT = 5000;
-
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Register = () => {
-    
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [enrol, setEnrol] = useState("");
@@ -15,11 +14,11 @@ const Register = () => {
     // useEffect(()=>{
     //     console.log(enrol);
     // },[enrol])
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(firstName,lastName,enrol,email,password);
-        const response = await fetch(`http://localhost:5000/user/register`, {
+        console.log(firstName, lastName, enrol, email, password);
+        const response = await fetch(`${API_BASE_URL}/user/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ firstName, lastName, enrol, email, password })
@@ -29,7 +28,7 @@ const Register = () => {
 
         if (response.ok) {
             alert(resp.message)
-        
+
         }
         else {
             alert(resp.message)

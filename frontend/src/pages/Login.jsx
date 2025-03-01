@@ -3,8 +3,9 @@ import './Login.css'
 
 import { useNavigate } from 'react-router-dom'
 
-// Backend port 
-const PORT = 5000;
+
+
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`http://localhost:5000/user/login`, {
+        const response = await fetch(`${API_BASE_URL}/user/login`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ enrollment, password })

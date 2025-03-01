@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MessageContext from '../context/messageContext';
 
-
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Cards = () => {
   const { selectedFaculty, setselectedFaculty } = useContext(MessageContext)
@@ -25,7 +25,7 @@ const Cards = () => {
   // checking that user can give feedback
   useEffect(() => {
     const facultyobjId = selectedFacultySession._id;
-    const response = fetch("http://localhost:5000/api/isFeedBackExist", {
+    const response = fetch(`${API_BASE_URL}/api/isFeedBackExist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token, enrollment, hashEnrollment, facultyobjId })
