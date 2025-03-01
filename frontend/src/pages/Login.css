@@ -1,0 +1,129 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../assets/images/rg3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.blurContainer {
+    border: 1px solid rgba(255, 255, 255, 0.911);
+    border: 1px solid black;
+    width: 500px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 10px 10px 100px rgba(255, 255, 255, 0.911);
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+form>h2 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 10px;
+    margin: 40px 0 20px 0;
+    color: black;
+    text-shadow: 2px 2px 5px whitesmoke;
+
+}
+
+.linediv {
+    height: 1px;
+    width: 100%;
+    background-color: black;
+}
+
+
+.input-filed_name {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.input-filed_name input {
+    width: 100%;
+}
+
+
+input {
+    border: 1px solid black;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    margin: 15px 5px;
+    border-radius: 5px;
+    width: auto;
+    height: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    /* color: rgba(224, 214, 214, 0.89); */
+    color: black;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: all 0.1s;
+    height: 50px;
+}
+
+input:hover {
+    transform: scale(1.01);
+}
+
+input[type="submit"] {
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+    transform: scale(0.98);
+    /* color:white; */
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.801);
+    font-size: 0.8rem;
+}
+
+
+
+.linedivlogin {
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    margin-bottom: 30px;
+}
+
+.blurContainerLogin {
+    border: 1px solid rgba(255, 255, 255, 0.911);
+    border: 1px solid black;
+    width: 500px;
+    height: 450px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 10px 10px 100px rgba(255, 255, 255, 0.911);
+    padding: 10px;
+}
+
+.loginSubmit {
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    margin-top: 20px;
+    transition: all 0.2s;
+}

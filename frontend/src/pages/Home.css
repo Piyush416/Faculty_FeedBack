@@ -1,0 +1,253 @@
+/* General Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(244, 247, 250);
+}
+
+/* Header */
+.header {
+  /* background: linear-gradient(135deg, rgb(66, 165, 245), rgb(33, 150, 243)); */
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  /* border-bottom: 5px solid rgb(21, 101, 192); */
+  position: relative;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Header Login/Logout Button */
+.header .auth-buttons {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.warning {
+  background-color: white;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.warning>a {
+  color: red;
+  font-size: 1.5em;
+}
+
+.auth-buttons button {
+  background-color: rgb(21, 101, 192);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: rgb(13, 71, 161);
+}
+
+/* Main Content Area */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 40px 20px;
+  min-width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+/* Filter Dropdown */
+.filter-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.filter-dropdown {
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background-color: rgb(66, 165, 245);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-dropdown:hover {
+  background-color: rgb(33, 150, 243);
+}
+
+/* Faculty Cards */
+.faculty-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.faculty-card {
+  width: 320px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
+
+
+.faculty-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Faculty Image */
+.faculty-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Faculty Info Section */
+.faculty-info {
+  /* background: linear-gradient(135deg, rgb(255, 138, 0), rgb(229, 46, 113)); */
+  background: linear-gradient(135deg, #111f1f, #080d06);
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.faculty-name {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e0dcdc;
+}
+
+.faculty-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #a09c9c;
+}
+
+.faculty-info p strong {
+  color: rgb(241, 241, 241);
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  gap: 8px;
+  font-size: 1.6rem;
+}
+
+.star {
+  cursor: pointer;
+  color: rgb(255, 215, 0);
+  transition: transform 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star.filled {
+  color: rgb(255, 215, 0);
+}
+
+/* Feedback Section */
+.feedback-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  resize: none;
+  /* max-height: 120px; */
+  overflow-y: auto;
+  transition: border-color 0.3s ease;
+}
+
+.feedback-input:focus {
+  outline: none;
+  border-color: rgb(66, 165, 245);
+}
+
+.submit-feedback {
+  background-color: rgb(66, 165, 245);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  margin: 0 auto;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.submit-feedback:hover {
+  background-color: rgb(33, 150, 243);
+}
+
+.feedback-display {
+  margin-top: 12px;
+  font-style: italic;
+  color: rgb(241, 241, 241);
+}
+
+
+/* Modal Popup */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  width: 350px;
+}
+
+.modal-content p {
+  margin: 0;
+}

@@ -1,0 +1,18 @@
+.footer {
+  background-color: #080d06;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+  color: white;
+  font-size: 1rem;
+}
+
+.con {
+  background: hotpink;
+}

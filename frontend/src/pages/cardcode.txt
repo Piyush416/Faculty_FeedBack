@@ -1,0 +1,30 @@
+<div className="faculty-card">
+<img
+  src={facultyObjId.image || 'https://via.placeholder.com/150'}
+  alt={facultyObjId.name}
+  className="faculty-image"
+/>
+<div className="faculty-info">
+  <h3 className="faculty-name">{facultyObjId.name}</h3>
+  <p><strong>Subject:</strong> {facultyObjId.subject}</p>
+  <p><strong>Experience:</strong> {facultyObjId.experience}</p>
+  <p><strong>Qualification:</strong> {facultyObjId.qualification}</p>
+
+  {/* submit feedback toggle*/}
+  <div className="star-rating">
+    <p><strong>Rate this Faculty:</strong></p>
+    {/* <div>{renderStars(faculty._id, 3)}</div> */}
+  </div>
+
+  <textarea
+    placeholder="Write your feedback here..."
+    className="feedback-input bg-white"
+  />
+
+  <button
+    onClick={() => handleFeedbackSubmit(facultyObjId._id, facultyObjId.name, index)}
+    className="submit-feedback">
+    Submit Feedback
+  </button>
+</div>
+</div>
