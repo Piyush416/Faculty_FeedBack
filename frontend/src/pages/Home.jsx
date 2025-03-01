@@ -60,7 +60,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/sorted`)
+    fetch(`facultyfeedback-production.up.railway.app/api/sorted`)
       .then((response) => response.json())
       .then((data) => {
         setFaculties(data);
@@ -172,7 +172,7 @@ const Home = () => {
                       className="feedback-input bg-white"
                     /> */}
 
-                    
+
                     <button
                       onClick={() => { handleClickCard(faculty, index + 1) }}
                       className="submit-feedback cursor-pointer">

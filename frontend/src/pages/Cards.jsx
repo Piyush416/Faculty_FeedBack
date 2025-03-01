@@ -25,7 +25,7 @@ const Cards = () => {
   // checking that user can give feedback
   useEffect(() => {
     const facultyobjId = selectedFacultySession._id;
-    const response = fetch(`${API_BASE_URL}/api/isFeedBackExist`, {
+    const response = fetch(`facultyfeedback-production.up.railway.app/api/isFeedBackExist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token, enrollment, hashEnrollment, facultyobjId })
