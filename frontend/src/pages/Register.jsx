@@ -18,7 +18,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(firstName, lastName, enrol, email, password);
-        const response = await fetch(`${API_BASE_URL}/user/register`, {
+        const response = await fetch(`https://${API_BASE_URL}/user/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ firstName, lastName, enrol, email, password })

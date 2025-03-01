@@ -25,7 +25,7 @@ const Cards = () => {
   // checking that user can give feedback
   useEffect(() => {
     const facultyobjId = selectedFacultySession._id;
-    const response = fetch(`${API_BASE_URL}/api/isFeedBackExist`, {
+    const response = fetch(`https://${API_BASE_URL}/api/isFeedBackExist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token, facultyobjId })
@@ -54,7 +54,7 @@ const Cards = () => {
     const facultyName = selectedFacultySession.name;
     const feedbackText = ReviewValue;
 
-    const response = await fetch(`${API_BASE_URL}/user/feedback`, {
+    const response = await fetch(`https://${API_BASE_URL}/user/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ facultyId, facultyName, feedbackText, token })

@@ -60,7 +60,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/sorted`)
+    fetch(`https://${API_BASE_URL}/api/sorted`)
       .then((response) => response.json())
       .then((data) => {
         setFaculties(data);
