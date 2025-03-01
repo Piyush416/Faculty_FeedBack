@@ -25,7 +25,7 @@ const Cards = () => {
   // checking that user can give feedback
   useEffect(() => {
     const facultyobjId = selectedFacultySession._id;
-    const response = fetch(`https://${VITE_API_URL}/api/isFeedBackExist`, {
+    const response = fetch(`https://${API_BASE_URL}/api/isFeedBackExist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token, enrollment, hashEnrollment, facultyobjId })
