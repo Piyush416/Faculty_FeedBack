@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import './Login.css'
 
 import { useNavigate } from 'react-router-dom'
-import messageContext from '../context/messageContext';
 
 // Backend port 
 const PORT = 5000;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './Home.css';
 import { Link, useNavigate } from 'react-router-dom'
-import messageContext from '../context/messageContext';
+import MessageContext from '../context/messageContext';
 
 
 
@@ -18,7 +18,7 @@ const Home = () => {
   const [feedbacks, setFeedbacks] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [isFeedBack, setFeedBack] = useState(false)
-  const { selectedFaculty, setselectedFaculty } = useContext(messageContext)
+  const { selectedFaculty, setselectedFaculty } = useContext(MessageContext)
 
   const navigate = useNavigate();
 

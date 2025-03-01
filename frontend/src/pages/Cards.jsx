@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
-import messageContext from '../context/messageContext'
+import MessageContext from '../context/messageContext';
+
 
 
 const Cards = () => {
-  const { selectedFaculty, setselectedFaculty } = useContext(messageContext)
+  const { selectedFaculty, setselectedFaculty } = useContext(MessageContext)
 
   const [ReviewValue, setReviewValue] = useState()
   const [canGiveFeedBack, setcanGiveFeedBack] = useState(true);
